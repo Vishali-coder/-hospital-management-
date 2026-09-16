@@ -121,7 +121,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+# public  ← removed: this was blocking the React public folder
 
 # Storybook build outputs
 .out
