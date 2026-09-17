@@ -29,8 +29,10 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
-      // Clear token and redirect to login
+    const url = error.config?.url || '';
+    const isAuthRoute = url.includes('/auth/signin') || url.includes('/auth/signup');
+    if (error.response?.status === 401 && !isAuthRoute) {
+      // Clear token and redirect to login (only for protected routes, not auth routes)
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       window.location.href = '/login';
