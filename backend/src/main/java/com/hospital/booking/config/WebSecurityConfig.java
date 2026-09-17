@@ -58,9 +58,10 @@ public class WebSecurityConfig {
         
         // Create CORS configuration inline
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        // Use setAllowedOrigins for specific origins (not patterns)
+        // Use setAllowedOriginPatterns to support wildcards (e.g. https://*.vercel.app)
+        // and also exact origins
         String[] origins = corsProperties.getAllowedOrigins().split(",");
-        corsConfiguration.setAllowedOrigins(Arrays.asList(origins));
+        corsConfiguration.setAllowedOriginPatterns(Arrays.asList(origins));
         corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         corsConfiguration.setAllowedHeaders(Arrays.asList("*"));
         corsConfiguration.setAllowCredentials(true);
