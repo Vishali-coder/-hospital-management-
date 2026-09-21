@@ -31,6 +31,7 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     fetchAdminData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchAdminData = async () => {

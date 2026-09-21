@@ -12,6 +12,7 @@ const DoctorDashboard = () => {
 
   useEffect(() => {
     fetchDoctorData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchDoctorData = async () => {

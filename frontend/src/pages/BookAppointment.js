@@ -20,12 +20,14 @@ const BookAppointment = () => {
 
   useEffect(() => {
     fetchDoctorDetails();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doctorId]);
 
   useEffect(() => {
     if (formData.appointmentDate) {
       fetchAvailableSlots();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData.appointmentDate]);
 
   const fetchDoctorDetails = async () => {
@@ -43,7 +45,7 @@ const BookAppointment = () => {
 
   const fetchAvailableSlots = async () => {
     try {
-      const response = await api.get(
+      await api.get(
         `/patient/doctors/${doctorId}/availability?date=${formData.appointmentDate}`
       );
       // Generate time slots based on doctor's schedule

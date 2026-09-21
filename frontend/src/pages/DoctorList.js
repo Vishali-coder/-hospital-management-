@@ -16,6 +16,7 @@ const DoctorList = () => {
 
   useEffect(() => {
     filterDoctors();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doctors, searchTerm, selectedSpecialty]);
 
   const fetchDoctors = async () => {
